@@ -57,7 +57,7 @@ public class SearchCommand implements CommandExecutor{
         embed.clear();
 
         for (SearchModel.Results results : searchModel.getResults()) {
-            if (!results.isAdult() || results.getPoster_path() == null) continue;
+            if (results.getPoster_path() == null) continue;
             try {
                 embed.setTitle(results.getTitle());
                 embed.setDescription("Movie id: " + results.getId());
