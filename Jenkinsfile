@@ -8,7 +8,7 @@ pipeline {
                     sh '''
                         cd \${JENKINS_HOME}/workspace/\${JOB_NAME}
                         mkdir -p src/main/resources
-                        cp \$BOT_CONFIG src/main/resources/config.properties
+                        yes | cp -rf \$BOT_CONFIG src/main/resources/config.properties
                     '''
                 }
             }
