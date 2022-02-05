@@ -1,13 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.8.4-openjdk-17-slim'
-            reuseNode true
-        }
-    }
+    agent none
 
     stages {
         stage('Build') {
+            agent
+            {
+                docker {
+                    image 'maven:3.8.4-openjdk-17-slim'
+                    reuseNode true
+                }
+            }
             steps {
                 sh 'mvn clean package -DskipTests'
             }
