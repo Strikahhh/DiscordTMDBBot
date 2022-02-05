@@ -2,9 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Configure') {
+            steps {
+                withCredentials([file(credentialsId: 'bot-config', variable: 'BOT_CONFIG')]) {
+                    sh 'cp $BOT_CONFIG src/main/resources/config.properties'
+                }
+            }
+        }
         stage('Build') {
-            agent
-            {
+            agent {
                 docker {
                     image 'maven:3.8.4-openjdk-17-slim'
                     reuseNode true
