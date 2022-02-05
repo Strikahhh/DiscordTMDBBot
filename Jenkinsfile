@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image '3.8.4-openjdk-17-slim'
+            image 'maven:3.8.4-openjdk-17-slim'
             reuseNode true
         }
     }
@@ -23,3 +23,4 @@ pipeline {
         }
     }
 }
+g
