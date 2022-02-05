@@ -29,7 +29,7 @@ pipeline {
                 sh '''
                     docker build -t discord-tmdb-bot .
                     docker rm -f discord-tmdb-bot
-                    docker run --name discord-tmdb-bot --restart=unless-stopped discord-tmdb-bot
+                    docker run -d --name discord-tmdb-bot --restart=unless-stopped discord-tmdb-bot
                 '''
             }
         }
