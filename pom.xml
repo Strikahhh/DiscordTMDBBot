@@ -29,7 +29,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.nougat.bot.Bot</mainClass>
+                            <mainClass>me.domen.discordBot.Bot</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
