@@ -15,15 +15,15 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class SearchCommand implements CommandExecutor{
+public class SearchCommand implements CommandExecutor {
 
-    public static OkHttpClient client = new OkHttpClient().newBuilder()
+    public static        OkHttpClient client        = new OkHttpClient().newBuilder()
             .connectTimeout(5, TimeUnit.SECONDS)
             .readTimeout(5, TimeUnit.SECONDS)
             .writeTimeout(5, TimeUnit.SECONDS)
             .build();
-    private static final String searchChannel = Bot.properties.getProperty("searchChannel");
-    private static final String posterPath = Bot.properties.getProperty("posterPath");
+    private static final String       searchChannel = Bot.properties.getProperty("searchChannel");
+    private static final String       posterPath    = Bot.properties.getProperty("posterPath");
 
     @Override
     public void execute(MessageReceivedEvent event) {
@@ -70,7 +70,7 @@ public class SearchCommand implements CommandExecutor{
         }
     }
 
-    private static Request createMovieSearchRequest(final String query,@Nullable String page) {
+    private static Request createMovieSearchRequest(final String query, @Nullable String page) {
         final String tmdbLink = "https://api.themoviedb.org/3/search/movie";
         final HttpUrl.Builder urlBuilder = HttpUrl.parse(tmdbLink).newBuilder();
         urlBuilder.addQueryParameter("api_key", Bot.loadProperties().getProperty("tmdb.apikey"));

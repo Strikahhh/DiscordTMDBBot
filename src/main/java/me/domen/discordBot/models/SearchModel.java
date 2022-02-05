@@ -11,7 +11,7 @@ import java.util.List;
 
 public final class SearchModel {
 
-    public static SearchModel retrieveSearchResults(final OkHttpClient client,final Request request) {
+    public static SearchModel retrieveSearchResults(final OkHttpClient client, final Request request) {
         try (final Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
                 System.out.println("Something went wrong with request");
@@ -19,18 +19,19 @@ public final class SearchModel {
             }
 
             ResponseBody responseBody = response.body();
-            if (responseBody != null) return  new Gson().fromJson(responseBody.string(), SearchModel.class);
+            if (responseBody != null) return new Gson().fromJson(responseBody.string(), SearchModel.class);
             else System.out.println("Response body is null");
-        }catch (IOException e) {
-            e.printStackTrace();;
+        } catch (IOException e) {
+            e.printStackTrace();
+            ;
         }
         return null;
     }
 
-    private final int page;
+    private final int           page;
     private final List<Results> results;
-    private final int total_pages;
-    private final int total_results;
+    private final int           total_pages;
+    private final int           total_results;
 
     public SearchModel(int page, List<Results> results, int total_pages, int total_results) {
         this.page = page;
@@ -57,12 +58,12 @@ public final class SearchModel {
 
     public static final class Results {
         private final boolean adult;
-        private final String backdrop_path;
-        private final int[] genre_ids;
-        private final int id;
-        private final String title;
-        private final String release_date;
-        private final String poster_path;
+        private final String  backdrop_path;
+        private final int[]   genre_ids;
+        private final int     id;
+        private final String  title;
+        private final String  release_date;
+        private final String  poster_path;
         private final boolean video;
 
         public Results(boolean adult, String backdrop_path, int[] genre_ids, int id, String title, String release_date, String poster_path, boolean video) {

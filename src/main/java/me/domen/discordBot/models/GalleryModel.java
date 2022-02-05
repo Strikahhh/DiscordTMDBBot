@@ -20,7 +20,7 @@ public final class GalleryModel {
                 return null;
             }
             return new Gson().fromJson(body.string(), GalleryModel.class);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -28,8 +28,8 @@ public final class GalleryModel {
 
 
     private final List<Backdrops> backdrops;
-    private final int id;
-    private final List<Posters> posters;
+    private final int             id;
+    private final List<Posters>   posters;
 
     public GalleryModel(List<Backdrops> backdrops, int id, List<Posters> posters) {
         this.backdrops = backdrops;
@@ -51,9 +51,9 @@ public final class GalleryModel {
 
     public static final class Backdrops {
         private final double aspect_ratio;
-        private final int height;
+        private final int    height;
         private final String file_path;
-        private final int width;
+        private final int    width;
 
         public Backdrops(double aspect_ratio, int height, String file_path, int width) {
             this.aspect_ratio = aspect_ratio;
@@ -81,9 +81,9 @@ public final class GalleryModel {
 
     public static final class Posters {
         private final double aspect_ratio;
-        private final int height;
+        private final int    height;
         private final String file_path;
-        private final int width;
+        private final int    width;
 
         public Posters(double aspect_ratio, int height, String file_path, int width) {
             this.aspect_ratio = aspect_ratio;

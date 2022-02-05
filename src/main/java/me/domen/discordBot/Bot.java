@@ -21,7 +21,7 @@ import java.util.Properties;
 
 public class Bot extends ListenerAdapter {
 
-    public static final Properties properties = loadProperties();
+    public static final  Properties                   properties          = loadProperties();
     private static final Map<String, CommandExecutor> botCommandsExecutor = Map.of(
             "!search", new SearchCommand(),
             "!gallery", new GalleryCommand(),
@@ -34,7 +34,7 @@ public class Bot extends ListenerAdapter {
             builder.setActivity(Activity.watching("you."));
             builder.addEventListeners(new Bot());
             builder.build();
-        }catch (final LoginException e) {
+        } catch (final LoginException e) {
             e.printStackTrace();
         }
     }
@@ -63,14 +63,13 @@ public class Bot extends ListenerAdapter {
 
     public static Properties loadProperties() {
         final Properties properties = new Properties();
-        try(final InputStream is = Bot.class.getResourceAsStream("/config.properties")) {
+        try (final InputStream is = Bot.class.getResourceAsStream("/config.properties")) {
             if (is != null) properties.load(is);
             else {
                 System.out.println("Resource config.properties not found");
                 System.exit(-1);
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return properties;

@@ -15,7 +15,7 @@ import java.net.URL;
 public class GalleryCommand implements CommandExecutor {
 
     private static final String backdropPath = Bot.properties.getProperty("backdropPath");
-    private static final String galleryId = Bot.properties.getProperty("galleryId");
+    private static final String galleryId    = Bot.properties.getProperty("galleryId");
 
 
     @Override
@@ -41,7 +41,7 @@ public class GalleryCommand implements CommandExecutor {
         embed.addField("Pictures found:", galleryModel.getBackdrops().size() + "", true);
         embed.addField("Posters found:", galleryModel.getPosters().size() + "", true);
         for (GalleryModel.Backdrops backdrops : galleryModel.getBackdrops()) {
-            try  {
+            try {
                 InputStream file = new URL(backdropPath + backdrops.getFile_path()).openStream();
                 embed.setImage("attachment://" + backdrops.getFile_path());
                 privateChannel.sendFile(file, backdrops.getFile_path(), AttachmentOption.SPOILER).setEmbeds(embed.build()).queue();
@@ -49,7 +49,6 @@ public class GalleryCommand implements CommandExecutor {
                 e.printStackTrace();
             }
         }
-
 
 
     }
