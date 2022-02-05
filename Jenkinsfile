@@ -5,7 +5,7 @@ pipeline {
         stage('Configure') {
             steps {
                 withCredentials([file(credentialsId: 'bot-config', variable: 'BOT_CONFIG')]) {
-                    sh 'cp $BOT_CONFIG src/main/resources/config.properties'
+                    sh 'cp \$BOT_CONFIG src/main/resources/config.properties'
                 }
             }
         }
